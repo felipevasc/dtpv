@@ -1,11 +1,13 @@
 import { createStore } from "redux";
 
-const INITIAL_STATE = ['Step 1', 'Step 2'];
+const INITIAL_STATE = {
+  activeProfile: "",
+  cards: []
+};
 
 function reducer(state = INITIAL_STATE, action) {
-  if (action.type === 'ADD_STAGE') {
-    console.log(state)
-    return [...state, `Step ${action.stage} ${state.length}`]
+  if (action.type === 'CHANGE_PROFILE') {
+    return {activeProfile: action.activeProfile, cards: state.cards}
   }
   return state;
 }

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import React from 'react'
+import { connect } from "react-redux";
 
-export function Top() {
+
+const Top = ({ store }) => {
   const StyledDiv = styled.div`
-          width: 100%;
           background-color: #0002;
-          height: 100%;
           grid-area: Top;
           color: #FFF;
           padding: 20px;
@@ -16,6 +16,7 @@ export function Top() {
           h2 {
             margin: 0;
             font-size: 2vw;
+            font-weight: 400;
           }
         `
   return (
@@ -24,8 +25,10 @@ export function Top() {
         Buscar por candidatos aprovados na Dataprev
       </h1>
       <h2>
-        Desenvolvedores
+        {store.activeProfile}
       </h2>
     </StyledDiv>
   )
 }
+
+export default connect(state => ({ store: state }))(Top)

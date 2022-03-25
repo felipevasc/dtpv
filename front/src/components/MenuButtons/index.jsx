@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 import React from 'react'
-export function MenuButtons({ img, profile, title }) {
+import { connect } from "react-redux";
+
+function changeProfile(store, activeProfile) {
+  return {
+    type: 'CHANGE_PROFILE',
+    store,
+    activeProfile
+  }
+}
+const MenuButtons = ({ store, dispatch, img, profile, title }) => {
   const StyledButton = styled.div`
           background-color: #FFF6;
           overflow-x: hidden;
@@ -20,8 +29,10 @@ export function MenuButtons({ img, profile, title }) {
           }
         `
   return (
-    <StyledButton title={`Buscar por ${title}`}>
+    <StyledButton title={`Buscar por ${title}`} onClick={() => dispatch(changeProfile(store, profile))}>
       <img src={img} />
     </StyledButton>
   )
 }
+
+export default connect(store => ({ store: store }))(MenuButtons)

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import { Sidebar } from '../Sidebar'
-import { Top } from '../Top'
+import Top from '../Top'
 import { Content } from '../Content'
 
 function InitialPage() {
@@ -16,7 +16,6 @@ function InitialPage() {
           grid-template-columns: 70px auto;
           grid-template-rows: 120px auto;
         `
-
   return (
     <>
       <StyledDiv>

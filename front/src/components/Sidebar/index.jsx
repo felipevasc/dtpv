@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-import { MenuButtons } from '../MenuButtons'
+import MenuButtons from '../MenuButtons'
 import dev from '../../assets/img/dev.png'
 import process from '../../assets/img/process.png'
 import lawyer from '../../assets/img/lawyer.png'
@@ -11,8 +11,6 @@ import infra from '../../assets/img/infra.png'
 
 export function Sidebar() {
   const StyledDiv = styled.div`
-          width: 100%;
-          height: 100%;
           background-color: #AAA1;
           padding-top: 10px;
           display: flex;
