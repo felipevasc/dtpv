@@ -1,0 +1,26 @@
+{
+  "name": "dtpv",
+  "version": "1.0.0",
+  "description": "Projeto criado para a entrevista com o Dataprev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipevasc/dtpv.git"
+  },
+  "author": "Felipe Vasconcelos de Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipevasc/dtpv/issues"
+  },
+  "homepage": "https://github.com/felipevasc/dtpv#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "type": "module"
+}

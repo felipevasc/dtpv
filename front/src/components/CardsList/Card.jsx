@@ -15,6 +15,7 @@ export default function({ name }) {
           overflow: hidden;
           color: #FFF;
           text-align: left;
+          display: inline-block;
 
           img {
             width: 25px;

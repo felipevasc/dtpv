@@ -19,21 +19,27 @@ const CardsList = () => {
             }
           }
           .others {
-            display: inline-block;
-            width: 93%;
+            display: block;
+            width: 80vw;
+            height: 120px;
             border-top: #000A solid 3px;
             border-left: #000A solid 3px;
             border-bottom: #FFF8 solid 3px;
             border-right: #FFF8 solid 3px;
             margin-top: 20px;
+            margin-left: 5vw;
             overflow-y: hidden;
             overflow-x: scroll;
             padding: 10px;
+            white-space: nowrap;
+
             >div {
               opacity: 0.7;
+              margin-right: 10px;
             }
             >div:hover {
               opacity: 1;
+              transform: scale(1.03);
             }
           }
         `
@@ -43,6 +49,12 @@ const CardsList = () => {
         <Card />
       </span>
       <span className='others'>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         <Card />
       </span>
     </StyledDiv>
