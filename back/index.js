@@ -1,7 +1,3 @@
-const app = require('./app');
-const appWs = require('./app-ws');
+import { getPageCPF } from './src/services/candidates.js'
 
-const server = app.listen(process.env.PORT || 3000, () => {
-    console.log(`App Express is running!`);
-})
-appWs(server);
+getPageCPF('FELIPE VASCONCELOS DE SOUZA', 'DESENVOLVIMENTO', '5')

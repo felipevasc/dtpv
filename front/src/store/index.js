@@ -3,21 +3,25 @@ import { createStore } from "redux";
 const INITIAL_STATE = {
   socket: null,
   activeProfile: "",
-  cards: {}
+  cards: {},
+  primaryCard: {}
 };
 
 function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'CHANGE_PROFILE':
-      return {activeProfile: action.activeProfile, cards: state.cards, socket: state.socket}
+      return { ...state, activeProfile: action.activeProfile}
     case 'SET_SOCKET':
-      return {socket: action.socket, cards: state.cards, activeProfile: state.activeProfile}
+      return {...state, socket: action.socket}
     case 'CHANGE_CARD':
+      console.log('CHANGE_CARD starting')
       let newCard = state.cards
       newCard[action.profile] = action.cards
-      console.log('Action: ', action)
-      console.log('State: ', state)
       return {...state, cards: newCard}
+    case 'CHANGE_PRIMARY_CARD':
+      console.log('Action: ', action)
+      console.log('State: ', {...state, primaryCard: action.card})
+      return {...state, primaryCard: action.card}
     default:
       return state;
   }

@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import React from 'react'
 import user from '../../assets/img/user.png'
+import { connect } from "react-redux";
 
-export default function({ name, profile }) {
+function formatCpf(cpf) {
+  return cpf.replace(/[^\d\?]/g, '').replace(/([0-9\?]{3})([0-9\?]{3})([0-9\?]{3})([0-9\?]{2})/, "$1.$2.$3-$4")
+}
+const Card = ({ card }) => {
   const StyledDiv = styled.div`
           width: 17vw;
           min-width: 250px;
@@ -39,15 +43,16 @@ export default function({ name, profile }) {
             width: 100%;
             white-space: nowrap;
           }
-          .profile {
+          .job {
             display: inline-block;
             position: absolute;
             top: 20px;
             left: 40px;
-            font-size: 11px;
+            font-size: 9px;
+            font-weight: 100;
             white-space: nowrap;
           }
-          .job {
+          .profile {
             display: inline-block;
             position: absolute;
             top: 40px;
@@ -95,19 +100,61 @@ export default function({ name, profile }) {
             transform: translate(-50%, 0);
             font-size: 15px;
             white-space: nowrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            .p1 {
+              color: #181;
+            }
+            .p2 {
+              color: #138;
+            }
+            .p3 {
+              color: #888;
+            }
           }
         `
+  let cpfFormated = ""
+
+  if (card.cpf === "") {
+    cpfFormated = card.cpfChunk
+    if (card.cpfCheckingLeft === -1) {
+      card.cpfCheckingLeft = '?'
+    }
+    if (card.cpfCheckingLeft !== "") {
+      cpfFormated = card.cpfCheckingLeft + "" + cpfFormated
+    }
+    else if (card.cpfCheckingRight !== "") {
+      cpfFormated = cpfFormated + "" + card.cpfCheckingRight
+    }
+    cpfFormated = formatCpf(cpfFormated)
+    while (cpfFormated.length < 14) {
+      cpfFormated = formatCpf(cpfFormated+"?")
+    }
+    console.log('CPF Formated:', cpfFormated)
+  }
   return (
     <StyledDiv>
       <img src={user} />
-      <span className='name'>{name}</span>
-      <span className='profile'>{profile}</span>
-      <span className='job'>Analista de Sistemas</span>
-      <span className='city'>Fortaleza-CE</span>
-      <span className='classification'>001</span>
-      <span className='id'>276.00697740/5</span>
-      <span className='status'>RETORNO AO CADASTRO</span>
-      <span className='cpf'>123.123.123-99</span>
+      <span className='name'>{card.name}</span>
+      <span className='profile'>{card.profile}</span>
+      <span className='job'>{card.job}</span>
+      <span className='city'>{card.city}</span>
+      <span className='classification'>{card.classification}</span>
+      <span className='id'>{card.id}</span>
+      <span className='status'>{card.status}</span>
+      <span className='cpf'>
+        <span className="p1">{!!card.cpfCheckingLeft ? 
+                            cpfFormated.substring(0, 1) : 
+                            cpfFormated.substring(0, cpfFormated.indexOf('?'))}</span>
+        <span className="p2">{!!card.cpfCheckingLeft ? 
+                            cpfFormated.substring(1, cpfFormated.indexOf('?', 2)) : 
+                            cpfFormated.substring(cpfFormated.indexOf('?'), 1)}</span>
+        <span className="p3">{!!card.cpfCheckingLeft ?
+                            cpfFormated.substring(cpfFormated.indexOf('?', 2)) :
+                            cpfFormated.substring(cpfFormated.indexOf('?') + 1)}</span>
+      </span>
     </StyledDiv>
   )
 }
+
+export default connect(store => ({ store: store }))(Card)

@@ -20,7 +20,7 @@ export function Sidebar() {
         `
   return (
     <StyledDiv>
-      <MenuButtons img={dev} profile="Desenvolvimento" title="Desenvolvedores"/>
+      <MenuButtons img={dev} profile="DESENVOLVIMENTO" title="Desenvolvedores"/>
       <MenuButtons img={eletrical} profile="Engenharia Elétrica" title="Engenheiros Elétricos"/>
       <MenuButtons img={business} profile="Análise de Negócios" title="Analistas de Negócios"/>
       <MenuButtons img={manager} profile="Gestão de Serviços de TIC" title="Gestores de TIC"/>

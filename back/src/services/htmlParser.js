@@ -1,27 +1,48 @@
 function getTds(htmlTr) {
   let objs = []
-  let i = -1
+  let start = -1
   do {
-    i = htmlTr.indexOf("<td")
-    let f = htmlTr.indexOf("</td>")
-    let td = htmlTr.substr(i, f - i)
+    start = htmlTr.indexOf("<td")
+    let end = htmlTr.indexOf("</td>")
+    let td = htmlTr.substr(start, end - start)
     td = td.substr(td.indexOf(">") + 1).replace('\n', '').trim()
     objs.push(td)
-    htmlTr = htmlTr.substr(f + 5)
-  } while (i > -1)
-  return objs
+    htmlTr = htmlTr.substr(end + 5)
+  } while (start > -1)
+  if (objs.length > 7) {
+    let newObj = {
+      job: objs[0],
+      profile: objs[1],
+      city: objs[2],
+      classification: objs[5],
+      name: objs[6],
+      id: objs[7],
+      status: objs[8],
+      cpf: "",
+      cpfCheckingLeft: -1,
+      cpfCheckingRight: "",
+      cpfChunk: "",
+      waiting: false
+    }
+    return newObj
+  }
+  return {}
 }
-
 function getTrs (htmlTbody) {
   let objs = [];
+  let start = 0
   let i = 0
+  const maxCandidatesByPage = 1
   do {
-    i = htmlTbody.indexOf("<tr");
-    let f = htmlTbody.indexOf("</tr>");
-    let tr = htmlTbody.substr(i, f - i)
+    start = htmlTbody.indexOf("<tr");
+    let end = htmlTbody.indexOf("</tr>");
+    let tr = htmlTbody.substr(start, end - start)
     objs.push(getTds(tr))
-    htmlTbody = htmlTbody.substr(f + 5)
-  } while (i > -1)
+    htmlTbody = htmlTbody.substr(end + 5)
+    i++
+    if (i > maxCandidatesByPage)
+      break
+  } while (start > -1)
   return objs
 }
 
