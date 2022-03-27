@@ -1,8 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
+import { connect } from "react-redux";
 
-const CardsList = () => {
+function changeCard(profile, cards) {
+  return {
+    type: 'CHANGE_CARD',
+    profile,
+    cards
+  }
+}
+const CardsList = ({ store, dispatch }) => {
   const StyledDiv = styled.div`
           .first {
             display: flex;
@@ -43,22 +51,31 @@ const CardsList = () => {
             }
           }
         `
+  if (!!store.activeProfile && !store.cards[store.activeProfile] && !!store.socket) {
+    dispatch(changeCard(store.activeProfile, []))
+    const payload = { profile: store.activeProfile }
+    console.log(`Emitting list ${store.activeProfile}`)
+    store.socket.emit("list", JSON.stringify(payload))
+    store.socket.on("list", msg => {
+      let obj = JSON.parse(msg)
+      console.log('Change to: ', obj)
+      dispatch(changeCard(obj.profile, obj.cards))
+    })
+  }
+
   return (
     <StyledDiv>
       <span className='first'>
         <Card />
       </span>
       <span className='others'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {!!store.activeProfile && !!store.cards[store.activeProfile] ?
+          store.cards[store.activeProfile].map(card => <Card name={card[6]} profile={card[1]} />) :
+          `Loading`
+        }
       </span>
     </StyledDiv>
   )
 }
 
-export default CardsList
+export default connect(store => ({ store: store }))(CardsList)

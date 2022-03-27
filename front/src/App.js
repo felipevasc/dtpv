@@ -4,16 +4,25 @@ import store from './store'
 import InitialPage from './components/InitialPage'
 import io from 'socket.io-client';
 
+const changeSocket = (socket) => {
+  return {
+    type: 'SET_SOCKET',
+    socket
+  }
+}
 function App() {
   let socket;
-
   if (!socket) {
     socket = io.connect("ws://localhost:3001")
-    socket.on("A", msg => console.log('Conectado: ', msg));
-    //socket.emmit("Ola", "X")
+    socket.on("connect", msg => {
+      store.dispatch(changeSocket(socket))
+    })
+    socket.on("card", msg => {
+      console.log('Recebendo msg card: ', msg)
+    });
   }
   return (
-    <Provider store={store} socket={socket}>
+    <Provider store={store}>
       <InitialPage />
     </Provider>
   );

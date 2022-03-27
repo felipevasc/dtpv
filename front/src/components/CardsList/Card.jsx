@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 import user from '../../assets/img/user.png'
 
-export default function({ name }) {
+export default function({ name, profile }) {
   const StyledDiv = styled.div`
           width: 17vw;
           min-width: 250px;
@@ -100,8 +100,8 @@ export default function({ name }) {
   return (
     <StyledDiv>
       <img src={user} />
-      <span className='name'>Nome Completo da Pessoa 12345</span>
-      <span className='profile'>Desenvolvimento de Sistemas</span>
+      <span className='name'>{name}</span>
+      <span className='profile'>{profile}</span>
       <span className='job'>Analista de Sistemas</span>
       <span className='city'>Fortaleza-CE</span>
       <span className='classification'>001</span>
