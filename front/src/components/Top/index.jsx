@@ -22,7 +22,7 @@ const Top = ({ store }) => {
   return (
     <StyledDiv>
       <h1>
-        Buscar por candidatos aprovados na Dataprev
+        Buscar por candidatos aprovados
       </h1>
       <h2>
         {store.activeProfile}

@@ -32,7 +32,7 @@ function getTrs (htmlTbody) {
   let objs = [];
   let start = 0
   let i = 0
-  const maxCandidatesByPage = 1
+  const maxCandidatesByPage = 15
   do {
     start = htmlTbody.indexOf("<tr");
     let end = htmlTbody.indexOf("</tr>");

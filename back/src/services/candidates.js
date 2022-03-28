@@ -8,7 +8,7 @@ async function getPageList(profile, page) {
     params: {
       field_candidato_value: "",
       field_cargo_value: "",
-      field_perfil_value: "Desenvolvimento",
+      field_perfil_value: profile,
       field_lotacao_value: "Fortaleza",
       field_cadastro_reserva_value: "",
       field_cpf_value: "",
@@ -21,6 +21,13 @@ async function getPageList(profile, page) {
 }
 
 async function checkPageCPF(name, profile, cpf) {
+  //MOKING
+  if ("03403174344".indexOf(cpf) > -1) {
+    return true;
+  }
+  else {
+    return false;
+  }
   console.log('Checking: ', cpf)
   const { data } = await axios.get(url, {
     params: {
@@ -51,8 +58,10 @@ async function getList(profile) {
     let i = 0
     let dataHtml = ""
     while (true) {
+      if (i > (maxPages - 1))
+        break;
       dataHtml = await getPageList(profile, i)
-      if (i > (maxPages - 1) || dataHtml.indexOf("<table") < 0) {
+      if (dataHtml.indexOf("<table") < 0) {
         break;
       }
       objs = objs.concat(htmlParser(dataHtml))

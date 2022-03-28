@@ -21,12 +21,12 @@ export function Sidebar() {
   return (
     <StyledDiv>
       <MenuButtons img={dev} profile="DESENVOLVIMENTO" title="Desenvolvedores"/>
-      <MenuButtons img={eletrical} profile="Engenharia Elétrica" title="Engenheiros Elétricos"/>
-      <MenuButtons img={business} profile="Análise de Negócios" title="Analistas de Negócios"/>
-      <MenuButtons img={manager} profile="Gestão de Serviços de TIC" title="Gestores de TIC"/>
-      <MenuButtons img={infra} profile="Infraestrutura e Aplicações" title="Analistas de Infraestrutura"/>
-      <MenuButtons img={process} profile="Processamento" title="Analistas de Processamento"/>
-      <MenuButtons img={lawyer} profile="Advocacia" title="Advogados"/>
+      <MenuButtons img={eletrical} profile="ENGENHARIA ELÉTRICA" title="Engenheiros Elétricos"/>
+      <MenuButtons img={business} profile="ANÁLISE DE NEGÓCIOS" title="Analistas de Negócios"/>
+      <MenuButtons img={manager} profile="GESTÃO DE SERVIÇOS DE TIC" title="Gestores de TIC"/>
+      <MenuButtons img={infra} profile="INFRAESTRUTURA E APLICAÇÕES" title="Analistas de Infraestrutura"/>
+      <MenuButtons img={process} profile="PROCESSAMENTO" title="Analistas de Processamento"/>
+      <MenuButtons img={lawyer} profile="ADVOCACIA" title="Advogados"/>
     </StyledDiv>
   )
 }
