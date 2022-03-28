@@ -1,8 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 
-export default () => {
-  const StyledDiv = styled.div`
+const StyledDiv = styled.div`
           display: grid;
           grid-template-areas: 'FRONT BACK';
           grid-template-columns: 50% auto;
@@ -17,6 +16,8 @@ export default () => {
             }
           }
   `
+export default () => {
+  
   return (
     <StyledDiv>
       <div>

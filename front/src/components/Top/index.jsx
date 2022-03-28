@@ -2,9 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 import { connect } from "react-redux";
 
-
-const Top = ({ store }) => {
-  const StyledDiv = styled.div`
+const StyledDiv = styled.div`
           background-color: #0002;
           grid-area: Top;
           color: #FFF;
@@ -19,6 +17,8 @@ const Top = ({ store }) => {
             font-weight: 400;
           }
         `
+const Top = ({ store }) => {
+  
   return (
     <StyledDiv>
       <h1>

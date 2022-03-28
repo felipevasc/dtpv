@@ -4,8 +4,7 @@ import { Sidebar } from '../Sidebar'
 import Top from '../Top'
 import { Content } from '../Content'
 
-function InitialPage() {
-  const StyledDiv = styled.div`
+const StyledDiv = styled.div`
           width: 100%;
           height: 100%;
           background-image: linear-gradient(120deg, #071E3F, #102040);
@@ -16,6 +15,8 @@ function InitialPage() {
           grid-template-columns: 70px auto;
           grid-template-rows: 120px auto;
         `
+function InitialPage() {
+  
   return (
     <>
       <StyledDiv>

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-
-export default function({ children, classCard }) {
-  const StyledDiv = styled.div`
+const StyledDiv = styled.div`
           width: 17vw;
           min-width: 250px;
           min-height: 100px;
@@ -119,6 +117,8 @@ export default function({ children, classCard }) {
             }
           }
         `
+export default function({ children, classCard }) {
+  
   return (
     <StyledDiv className={classCard}>{children}</StyledDiv>
   )

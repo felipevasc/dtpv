@@ -25,9 +25,9 @@ function changeCardInCards(cards, card) {
 }
 const ListCard = ({ store, dispatch, setPrimaryCard, profile, id }) => {
   function sendCheck(socket, card) {
+    console.log(card)
     socket.emit("check", JSON.stringify(card));
     socket.on('check', msg => {
-      console.log('Receiving check', msg)
       let obj = JSON.parse(msg)
       setPrimaryCard(obj)
       if (obj.cpf !== '') {

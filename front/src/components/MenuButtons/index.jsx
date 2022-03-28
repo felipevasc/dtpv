@@ -9,8 +9,7 @@ function changeProfile(store, activeProfile) {
     activeProfile
   }
 }
-const MenuButtons = ({ store, dispatch, img, profile, title }) => {
-  const StyledButton = styled.div`
+const StyledButton = styled.div`
           background-color: #FFF6;
           overflow-x: hidden;
           overflow-y: hidden;
@@ -28,6 +27,8 @@ const MenuButtons = ({ store, dispatch, img, profile, title }) => {
             width: 40px;
           }
         `
+const MenuButtons = ({ store, dispatch, img, profile, title }) => {
+  
   return (
     <StyledButton title={`Buscar por ${title}`} onClick={() => dispatch(changeProfile(store, profile))}>
       <img src={img} />

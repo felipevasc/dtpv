@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-
-export default function({children}) {
-  const StyledDiv = styled.div`
+const StyledDiv = styled.div`
           color: #FFF;
           .first {
             display: flex;
@@ -46,6 +44,7 @@ export default function({children}) {
             }
           }
         `
+export default function({children}) {
   return (
     <StyledDiv>{children}</StyledDiv>
   )
