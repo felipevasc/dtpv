@@ -1,15 +1,16 @@
 import axios from 'axios'
 import { htmlParser } from './htmlParser.js'
+import dotenv from "dotenv"
+dotenv.config()
 
-let url = "https://portal3.dataprev.gov.br/situacao-concursados/2016";
-
+let url = process.env.DTPV_URL;
 async function getPageList(profile, page) {
     const { data } = await axios.get(url, {
         params: {
             field_candidato_value: "",
             field_cargo_value: "",
             field_perfil_value: profile,
-            field_lotacao_value: "Fortaleza",
+            field_lotacao_value: process.env.LOTACAO,
             field_cadastro_reserva_value: "",
             field_cpf_value: "",
             "op-concurso": "Pesquisar",
@@ -21,7 +22,7 @@ async function getPageList(profile, page) {
 }
 
 async function checkPageCPF(name, profile, cpf) {
-    /*
+    ///*
     ///////
     if ("00000000000".indexOf(cpf) > -1) {
         return true;
@@ -29,14 +30,14 @@ async function checkPageCPF(name, profile, cpf) {
         return false;
     } 
     /////////
-    */
+    //*/
     console.log('Checking: ', cpf)
     const { data } = await axios.get(url, {
         params: {
             field_candidato_value: name,
             field_cargo_value: "",
             field_perfil_value: profile,
-            field_lotacao_value: "Fortaleza",
+            field_lotacao_value: process.env.LOTACAO,
             field_cadastro_reserva_value: "",
             field_cpf_value: cpf,
             "op-concurso": "Pesquisar"
@@ -50,7 +51,7 @@ async function checkPageCPF(name, profile, cpf) {
     }
 }
 async function getList(profile) {
-    const maxPages = 1;
+    const maxPages = 2;
     if (!global.candidates) {
         global.candidates = {}
     }
