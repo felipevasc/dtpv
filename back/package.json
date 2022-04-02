@@ -2,7 +2,7 @@
   "name": "dtpv",
   "version": "1.0.0",
   "description": "Projeto criado para a entrevista com o Dataprev",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/server.js"
