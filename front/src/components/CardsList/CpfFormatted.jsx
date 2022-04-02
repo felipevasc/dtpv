@@ -31,13 +31,16 @@ export default function ({ cpf, cpfChunk, cpfCheckingLeft, cpfCheckingRight }) {
     <span className='cpf'>
       <span className="p1">{!!cpfCheckingLeft ?
         cpfFormatted.substring(0, 1) :
-        cpfFormatted.substring(0, cpfFormatted.indexOf('?') - 1)}</span>
+        cpfFormatted.substring(0, cpfFormatted.indexOf('?') - 1)}
+      </span>
       <span className="p2">{!!cpfCheckingLeft ?
         cpfFormatted.substring(1, cpfFormatted.indexOf('?', 2)) :
-        cpfFormatted.substring(cpfFormatted.indexOf('?') - 1, cpfFormatted.indexOf('?'))}</span>
+        cpfFormatted.substring(cpfFormatted.indexOf('?') - 1, cpfFormatted.indexOf('?'))}
+      </span>
       <span className="p3">{!!cpfCheckingLeft ?
         cpfFormatted.substring(cpfFormatted.indexOf('?', 2)) :
-        cpfFormatted.substring(cpfFormatted.indexOf('?'))}</span>
+        cpfFormatted.substring(cpfFormatted.indexOf('?'))}
+      </span>
     </span>
   )
 }

@@ -4,7 +4,7 @@ const StyledDiv = styled.div`
           color: #FFF;
           .first {
             display: flex;
-            width: 90%;
+            width: 80%;
             justify-content: center;
             align-items: center;
             margin-top: 15px;
