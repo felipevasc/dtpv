@@ -24,7 +24,7 @@ async function getPageList(profile, page) {
 async function checkPageCPF(name, profile, cpf) {
     ///*
     ///////
-    if ("00000000000".indexOf(cpf) > -1) {
+    if ("33333333333".indexOf(cpf) > -1) {
         return true;
     } else {
         return false;
