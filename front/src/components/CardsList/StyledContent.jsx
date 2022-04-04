@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
             box-shadow: 1em 0.8em 2em #000;
             >div {
               box-shadow: 5px 5px 5px #000;
-              transform: scale(1.3);
+              transform: scale(1.3) rotateY(2deg) rotateX(2deg);
             }
           }
           .others {
@@ -34,6 +34,7 @@ const StyledDiv = styled.div`
             >div>div {
               opacity: 0.7;
               margin-right: 10px;
+              transition: all .3s ease-in-out;
             }
             >div>div:hover {
               opacity: 1;

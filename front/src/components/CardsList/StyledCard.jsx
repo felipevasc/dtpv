@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
           min-width: 250px;
           min-height: 100px;
           height: 8vw;
-          background-color: #8C4A1D;
+          background-color: #043C40;
           border: rgba(0, 0, 0, 0.5) solid 2px;
           border-radius: 4px;
           position: relative;
@@ -14,16 +14,19 @@ const StyledDiv = styled.div`
           text-align: left;
           display: inline-block;
           &.RETORNO_AO_CADASTRO  {
-            background-color: #8C7901;
+            background-color: #9AB349;
           }
           &.DESISTENTE  {
-            background-color: #403704;
+            background-color: #8C2416;
           }
           &.ADMITIDO {
-            background-color: #043C40;
+            background-color: #0F848C;
           }
           &.NÃO_CONVOCADO {
-            background-color: #100A40;
+            background-color: #8C7901;
+          }
+          &.ELIMINADO {
+            background-color: #8C1808;
           }
           img {
             width: 25px;
