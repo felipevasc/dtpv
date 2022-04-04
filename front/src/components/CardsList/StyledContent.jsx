@@ -3,37 +3,40 @@ import React from 'react'
 const StyledDiv = styled.div`
           color: #FFF;
           .first {
-            display: flex;
-            width: 80%;
+            display: inline-block;
+            min-width: 90%;
+            max-width: 100%;
             justify-content: center;
             align-items: center;
+            margin: 0 auto;
             margin-top: 15px;
             margin-left: 2%;
             padding: 2%;
-            box-shadow: 1em 0.8em 2em #000;
+            //box-shadow: 1em 0.8em 2em #000;
             >div {
               box-shadow: 5px 5px 5px #000;
-              transform: scale(1.3) rotateY(2deg) rotateX(2deg);
+              transform: scale(1.2);
             }
           }
           .others {
             display: flex;
-            width: 80vw;
-            height: 120px;
-            border-top: #000A solid 3px;
-            border-left: #000A solid 3px;
-            border-bottom: #FFF8 solid 3px;
-            border-right: #FFF8 solid 3px;
+            min-width: 70%;
+            max-width: 95%;
             margin-top: 20px;
-            margin-left: 5vw;
+            margin-left: 2%;
             overflow-y: hidden;
             overflow-x: scroll;
             padding: 10px;
+            padding-bottom: 0px;
             white-space: nowrap;
-
+            >div {
+              margin: 0 auto;
+              text-align: center;
+            }
             >div>div {
               opacity: 0.7;
               margin-right: 10px;
+              transform: rotateY(15deg) rotateX(-15deg);
               transition: all .3s ease-in-out;
             }
             >div>div:hover {

@@ -13,6 +13,11 @@ const StyledDiv = styled.div`
           color: #FFF;
           text-align: left;
           display: inline-block;
+
+          border-top: #FFFA solid 3px;
+          border-left: #FFFA solid 3px;
+          border-bottom: #000 solid 3px;
+          border-right: #000 solid 3px;
           &.RETORNO_AO_CADASTRO  {
             background-color: #9AB349;
           }
@@ -120,8 +125,8 @@ const StyledDiv = styled.div`
             }
           }
         `
-export default function({ children, classCard }) {
-  
+export default function ({ children, classCard }) {
+
   return (
     <StyledDiv className={classCard}>{children}</StyledDiv>
   )
